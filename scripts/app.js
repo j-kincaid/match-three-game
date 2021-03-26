@@ -373,8 +373,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let colorBeingDragged
     let colorBeingReplaced
-    let squareIdBeingDragged
+    let squareIdBeingDragged // == x
     let squareIdbeingReplaced
+    let colorDraggedOver
+    let indexBeingDraggedOver
+    let squareIdBeingEntered
+
 
     const animationStart = (element) => {
         element.preventDefault()
@@ -383,18 +387,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const dragStart = (element) => {
         colorBeingDragged = element.target.style.backgroundImage
         squareIdBeingDragged = parseInt(element.target.id)
+
+        
+       
     }
 
     const dragOver = (element) => {
-        element.preventDefault()
+        colorDraggedOver = element.target.style.backgroundImage
+        indexBeingDraggedOver = element.target.id
+       //squareIdBeingDragged = indexBeingDraggedOver
+       const difference = indexBeingDraggedOver - squareIdBeingDragged
+
+       if(difference < 0){
+           
+
+       }
+
+        console.log("Index of dragged candy  ", squareIdBeingDragged)
+
+       // element.preventDefault()
     }
 
     const dragEnter = (element) => {
-        element.preventDefault()
+        squareIdBeingEntered = element.target.id
+  
+
+        console.log("Drag enter action on index ", element.target.id)
+       // element.preventDefault()
 
     }
 
     const dragLeave = (element) => {
+        console.log("Drag Leave action on index ", element.target.id)
 
     }
 
